@@ -1,0 +1,806 @@
+2026-04-19 19:03:30 | INFO     | src.analysis.audio_dsp.preprocessor:146 | [test001] Starting preprocessing: test_audio.mp3
+2026-04-19 19:06:39 | INFO     | src.analysis.audio_dsp.preprocessor:146 | [test001] Starting preprocessing: test_audio.mp3
+2026-04-19 19:06:40 | INFO     | src.analysis.audio_dsp.preprocessor:173 | [test001] Duration: 372.7s | SR: 16000Hz
+2026-04-19 19:06:40 | INFO     | src.analysis.audio_dsp.preprocessor:177 | [test001] Estimated SNR: 19.3 dB
+2026-04-19 19:06:40 | INFO     | src.analysis.audio_dsp.preprocessor:182 | [test001] SNR below 30.0dB - applying DeepFilterNet
+2026-04-19 19:08:05 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [test002] Starting preprocessing: test_audio.mp3
+2026-04-19 19:08:06 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [test002] Duration: 372.7s | SR: 16000Hz
+2026-04-19 19:08:06 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [test002] Estimated SNR: 19.3 dB
+2026-04-19 19:08:06 | INFO     | src.analysis.audio_dsp.preprocessor:207 | [test002] SNR below 30.0dB - applying DeepFilterNet
+2026-04-19 19:10:29 | INFO     | src.analysis.audio_dsp.vad:279 | [test_vad] Starting VAD analysis
+2026-04-19 19:10:29 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 19:10:34 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 19:10:38 | INFO     | src.analysis.audio_dsp.vad:303 | [test_vad] Speech: 121.0s | Silence: 251.7s | Ratio: 32.5%
+2026-04-19 19:10:38 | INFO     | src.analysis.audio_dsp.vad:315 | [test_vad] Pauses: 98 total | 32 micro (150-400ms) | 66 macro (>500ms)
+2026-04-19 19:10:38 | INFO     | src.analysis.audio_dsp.vad:326 | [test_vad] Pause freq: 32.7/min | Mean duration: 3.67s
+2026-04-19 19:10:38 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [test_vad] VAD analysis complete
+2026-04-19 19:14:10 | INFO     | src.analysis.asr.transcriber:234 | [test_asr] Starting local ASR transcription
+2026-04-19 19:14:10 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:16:04 | INFO     | src.analysis.asr.transcriber:234 | [test_asr] Starting local ASR transcription
+2026-04-19 19:16:04 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:16:07 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:16:10 | INFO     | src.analysis.asr.transcriber:179 | [test_asr] Transcribed 36 words in 3.4s | Mean confidence: 0.75 | Low-conf words: 7
+2026-04-19 19:16:10 | SUCCESS  | src.analysis.asr.transcriber:240 | [test_asr] ASR complete: 36 words | confidence: 0.75 | time: 3.4s
+2026-04-19 19:19:44 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [speech01] Starting preprocessing: test_speech.wav
+2026-04-19 19:19:45 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [speech01] Duration: 76.8s | SR: 16000Hz
+2026-04-19 19:19:45 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [speech01] Estimated SNR: 60.0 dB
+2026-04-19 19:19:45 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [speech01] SNR sufficient - skipping denoising
+2026-04-19 19:19:45 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [speech01] Preprocessing complete -> speech01_processed.wav
+2026-04-19 19:19:45 | INFO     | src.analysis.asr.transcriber:234 | [speech01] Starting local ASR transcription
+2026-04-19 19:19:45 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:19:48 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:19:50 | INFO     | src.analysis.asr.transcriber:179 | [speech01] Transcribed 182 words in 2.6s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 19:19:50 | SUCCESS  | src.analysis.asr.transcriber:240 | [speech01] ASR complete: 182 words | confidence: 0.97 | time: 2.6s
+2026-04-19 19:23:32 | INFO     | src.analysis.asr.transcriber:234 | [full_test] Starting local ASR transcription
+2026-04-19 19:23:32 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:23:35 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:23:42 | INFO     | src.analysis.asr.transcriber:179 | [full_test] Transcribed 182 words in 6.2s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 19:23:42 | SUCCESS  | src.analysis.asr.transcriber:240 | [full_test] ASR complete: 182 words | confidence: 0.97 | time: 6.2s
+2026-04-19 19:23:42 | INFO     | src.analysis.audio_dsp.vad:279 | [full_test] Starting VAD analysis
+2026-04-19 19:23:42 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 19:23:42 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 19:23:45 | INFO     | src.analysis.audio_dsp.vad:303 | [full_test] Speech: 57.8s | Silence: 19.0s | Ratio: 75.2%
+2026-04-19 19:23:45 | INFO     | src.analysis.audio_dsp.vad:315 | [full_test] Pauses: 34 total | 15 micro (150-400ms) | 19 macro (>500ms)
+2026-04-19 19:23:45 | INFO     | src.analysis.audio_dsp.vad:326 | [full_test] Pause freq: 19.7/min | Mean duration: 0.76s
+2026-04-19 19:23:45 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [full_test] VAD analysis complete
+2026-04-19 19:23:45 | INFO     | src.analysis.nlp.punctuation:26 | Loading spaCy en_core_web_sm model...
+2026-04-19 19:23:48 | INFO     | src.analysis.nlp.punctuation:28 | spaCy model loaded
+2026-04-19 19:23:51 | INFO     | src.analysis.nlp.tone:271 | [full_test] Starting tone analysis
+2026-04-19 19:23:55 | INFO     | src.analysis.nlp.tone:44 | Loading sentiment model (cardiffnlp/twitter-roberta-base-sentiment)...
+2026-04-19 19:23:56 | WARNING  | src.analysis.nlp.tone:54 | Could not load RoBERTa: name 'torch' is not defined - using VADER fallback
+2026-04-19 19:23:56 | INFO     | src.analysis.nlp.tone:289 | [full_test] Tone: Formal (score 4.0)
+2026-04-19 19:26:43 | INFO     | src.analysis.asr.transcriber:234 | [scoring_test] Starting local ASR transcription
+2026-04-19 19:26:43 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:26:45 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:26:49 | INFO     | src.analysis.asr.transcriber:179 | [scoring_test] Transcribed 182 words in 4.0s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 19:26:49 | SUCCESS  | src.analysis.asr.transcriber:240 | [scoring_test] ASR complete: 182 words | confidence: 0.97 | time: 4.0s
+2026-04-19 19:26:49 | INFO     | src.analysis.audio_dsp.vad:279 | [scoring_test] Starting VAD analysis
+2026-04-19 19:26:49 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 19:26:49 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 19:26:50 | INFO     | src.analysis.audio_dsp.vad:303 | [scoring_test] Speech: 57.8s | Silence: 19.0s | Ratio: 75.2%
+2026-04-19 19:26:50 | INFO     | src.analysis.audio_dsp.vad:315 | [scoring_test] Pauses: 34 total | 15 micro (150-400ms) | 19 macro (>500ms)
+2026-04-19 19:26:50 | INFO     | src.analysis.audio_dsp.vad:326 | [scoring_test] Pause freq: 19.7/min | Mean duration: 0.76s
+2026-04-19 19:26:50 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [scoring_test] VAD analysis complete
+2026-04-19 19:26:50 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 19:26:50 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 19:26:51 | INFO     | src.analysis.nlp.tone:187 | [scoring_test] Starting tone analysis
+2026-04-19 19:26:52 | INFO     | src.analysis.nlp.tone:27 | Loading RoBERTa sentiment model...
+2026-04-19 19:26:57 | WARNING  | src.analysis.nlp.tone:46 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 19:26:57 | INFO     | src.analysis.nlp.tone:202 | [scoring_test] Tone: Formal (score 4.0)
+2026-04-19 19:26:57 | INFO     | src.analysis.scoring.composite:126 | [scoring_test] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 19:26:57 | INFO     | src.analysis.scoring.composite:126 | [scoring_test] Composite: 3.51/5 (62.7%) Grade: B | Role: sales
+2026-04-19 19:26:57 | INFO     | src.analysis.scoring.composite:126 | [scoring_test] Composite: 4.1/5 (77.5%) Grade: B | Role: executive
+2026-04-19 19:26:57 | INFO     | src.analysis.scoring.composite:126 | [scoring_test] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 19:29:18 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [report_test] Starting preprocessing: test_speech.wav
+2026-04-19 19:29:18 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [report_test] Duration: 76.8s | SR: 16000Hz
+2026-04-19 19:29:18 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [report_test] Estimated SNR: 60.0 dB
+2026-04-19 19:29:18 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [report_test] SNR sufficient - skipping denoising
+2026-04-19 19:29:18 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [report_test] Preprocessing complete -> report_test_processed.wav
+2026-04-19 19:29:18 | INFO     | src.analysis.asr.transcriber:234 | [report_test] Starting local ASR transcription
+2026-04-19 19:29:18 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:29:19 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:29:22 | INFO     | src.analysis.asr.transcriber:179 | [report_test] Transcribed 182 words in 2.4s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 19:29:22 | SUCCESS  | src.analysis.asr.transcriber:240 | [report_test] ASR complete: 182 words | confidence: 0.97 | time: 2.4s
+2026-04-19 19:29:22 | INFO     | src.analysis.audio_dsp.vad:279 | [report_test] Starting VAD analysis
+2026-04-19 19:29:22 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 19:29:22 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 19:29:23 | INFO     | src.analysis.audio_dsp.vad:303 | [report_test] Speech: 57.8s | Silence: 19.0s | Ratio: 75.2%
+2026-04-19 19:29:23 | INFO     | src.analysis.audio_dsp.vad:315 | [report_test] Pauses: 34 total | 15 micro (150-400ms) | 19 macro (>500ms)
+2026-04-19 19:29:23 | INFO     | src.analysis.audio_dsp.vad:326 | [report_test] Pause freq: 19.7/min | Mean duration: 0.76s
+2026-04-19 19:29:23 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [report_test] VAD analysis complete
+2026-04-19 19:29:23 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 19:29:23 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 19:29:24 | INFO     | src.analysis.nlp.tone:187 | [report_test] Starting tone analysis
+2026-04-19 19:29:25 | INFO     | src.analysis.nlp.tone:27 | Loading RoBERTa sentiment model...
+2026-04-19 19:29:27 | WARNING  | src.analysis.nlp.tone:46 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 19:29:27 | INFO     | src.analysis.nlp.tone:202 | [report_test] Tone: Formal (score 4.0)
+2026-04-19 19:29:27 | INFO     | src.analysis.scoring.composite:126 | [report_test] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 19:29:27 | INFO     | src.analysis.scoring.report_builder:95 | [report_test] Report built: 3.8/5 Grade B
+2026-04-19 19:29:27 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\report_test_report.json
+2026-04-19 19:30:23 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [report_test2] Starting preprocessing: test_speech.wav
+2026-04-19 19:30:23 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [report_test2] Duration: 76.8s | SR: 16000Hz
+2026-04-19 19:30:23 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [report_test2] Estimated SNR: 60.0 dB
+2026-04-19 19:30:23 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [report_test2] SNR sufficient - skipping denoising
+2026-04-19 19:30:23 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [report_test2] Preprocessing complete -> report_test2_processed.wav
+2026-04-19 19:30:23 | INFO     | src.analysis.asr.transcriber:234 | [report_test2] Starting local ASR transcription
+2026-04-19 19:30:23 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 19:30:25 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 19:30:28 | INFO     | src.analysis.asr.transcriber:179 | [report_test2] Transcribed 182 words in 2.5s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 19:30:28 | SUCCESS  | src.analysis.asr.transcriber:240 | [report_test2] ASR complete: 182 words | confidence: 0.97 | time: 2.5s
+2026-04-19 19:30:28 | INFO     | src.analysis.audio_dsp.vad:279 | [report_test2] Starting VAD analysis
+2026-04-19 19:30:28 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 19:30:28 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 19:30:29 | INFO     | src.analysis.audio_dsp.vad:303 | [report_test2] Speech: 57.8s | Silence: 19.0s | Ratio: 75.2%
+2026-04-19 19:30:29 | INFO     | src.analysis.audio_dsp.vad:315 | [report_test2] Pauses: 34 total | 15 micro (150-400ms) | 19 macro (>500ms)
+2026-04-19 19:30:29 | INFO     | src.analysis.audio_dsp.vad:326 | [report_test2] Pause freq: 19.7/min | Mean duration: 0.76s
+2026-04-19 19:30:29 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [report_test2] VAD analysis complete
+2026-04-19 19:30:29 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 19:30:29 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 19:30:30 | INFO     | src.analysis.nlp.tone:187 | [report_test2] Starting tone analysis
+2026-04-19 19:30:31 | INFO     | src.analysis.nlp.tone:27 | Loading RoBERTa sentiment model...
+2026-04-19 19:30:33 | WARNING  | src.analysis.nlp.tone:46 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 19:30:33 | INFO     | src.analysis.nlp.tone:202 | [report_test2] Tone: Formal (score 4.0)
+2026-04-19 19:30:33 | INFO     | src.analysis.scoring.composite:126 | [report_test2] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 19:30:33 | INFO     | src.analysis.scoring.report_builder:95 | [report_test2] Report built: 3.8/5 Grade B
+2026-04-19 19:30:33 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\report_test2_report.json
+2026-04-19 19:30:33 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\report_test2_report.html
+2026-04-19 19:30:33 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\report_test2_report.html
+2026-04-19 19:30:34 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\report_test2_report.pdf
+2026-04-19 19:30:34 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job report_test2: JSON + HTML + PDF
+2026-04-19 20:04:34 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:04:34 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:05:30 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:05:33 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:05:33 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:05:33 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:05:33 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:05:34 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:05:34 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:05:34 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:12:32 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:12:34 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:12:34 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:12:37 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:12:39 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:12:39 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:12:39 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:12:39 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:12:39 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:12:39 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:12:39 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:12:40 | INFO     | src.api.routes:69 | [24b540d0-872] Uploaded: test_speech.wav (3.2 MB) role=RoleEnum.general
+2026-04-19 20:14:32 | WARNING  | src.api.routes:87 | Celery not available (
+Retry limit exceeded while trying to reconnect to the Celery result store
+backend. The Celery application must be restarted.
+) - running synchronously
+2026-04-19 20:14:32 | ERROR    | src.workers.tasks:174 | [24b540d0-872] Task failed: task_id must not be empty. Got None instead.
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1003, in connect_check_health
+    sock = self._connect()
+           ^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1515, in _connect
+    raise err
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1499, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 349, in reconnect_on_error
+    yield
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 165, in _consume_from
+    self._pubsub.subscribe(key)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 1265, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 1023, in execute_command
+    self.connection = self.connection_pool.get_connection()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 3041, in get_connection
+    connection.connect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1025, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1003, in connect_check_health
+    sock = self._connect()
+           ^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1515, in _connect
+    raise err
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1499, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 352, in reconnect_on_error
+    self._reconnect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 121, in _reconnect
+    self._ensure(self._reconnect_pubsub, ())
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 413, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 103, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\commands\core.py", line 2241, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 716, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 722, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 3041, in get_connection
+    connection.connect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1025, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\src\api\routes.py", line 74, in analyze_audio
+    task = analyze_audio_task.apply_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\task.py", line 627, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\base.py", line 968, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 402, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 157, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 135, in start
+    self._consume_from(initial_task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 164, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 355, in reconnect_on_error
+    raise RuntimeError(E_RETRY_LIMIT_EXCEEDED) from exc
+RuntimeError: 
+Retry limit exceeded while trying to reconnect to the Celery result store
+backend. The Celery application must be restarted.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\src\workers\tasks.py", line 62, in analyze_audio_task
+    self.update_state(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\task.py", line 1052, in update_state
+    self.backend.store_result(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 625, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 1090, in _store_result
+    current_meta = self._get_task_meta_for(task_id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 1112, in _get_task_meta_for
+    meta = self.get(self.get_key_for_task(task_id))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 986, in get_key_for_task
+    raise ValueError(f'task_id must not be empty. Got {task_id} instead.')
+ValueError: task_id must not be empty. Got None instead.
+
+2026-04-19 20:14:32 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:14:45 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:14:45 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:14:47 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:14:50 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:14:50 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:14:50 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:14:50 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:14:51 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:14:51 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:14:51 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:15:01 | INFO     | src.api.routes:69 | [58c0ddd3-fae] Uploaded: test_speech.wav (3.2 MB) role=RoleEnum.general
+2026-04-19 20:16:51 | WARNING  | src.api.routes:87 | Celery not available (
+Retry limit exceeded while trying to reconnect to the Celery result store
+backend. The Celery application must be restarted.
+) - running synchronously
+2026-04-19 20:16:51 | ERROR    | src.workers.tasks:174 | [58c0ddd3-fae] Task failed: task_id must not be empty. Got None instead.
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1003, in connect_check_health
+    sock = self._connect()
+           ^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1515, in _connect
+    raise err
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1499, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 349, in reconnect_on_error
+    yield
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 165, in _consume_from
+    self._pubsub.subscribe(key)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 1265, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 1023, in execute_command
+    self.connection = self.connection_pool.get_connection()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 3041, in get_connection
+    connection.connect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1025, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1003, in connect_check_health
+    sock = self._connect()
+           ^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1515, in _connect
+    raise err
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1499, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 352, in reconnect_on_error
+    self._reconnect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 121, in _reconnect
+    self._ensure(self._reconnect_pubsub, ())
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 413, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 103, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\commands\core.py", line 2241, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 716, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\client.py", line 722, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 3041, in get_connection
+    connection.connect()
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+           ^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\redis\connection.py", line 1025, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\src\api\routes.py", line 74, in analyze_audio
+    task = analyze_audio_task.apply_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\task.py", line 627, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\base.py", line 968, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 402, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 157, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 135, in start
+    self._consume_from(initial_task_id)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\redis.py", line 164, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\asynchronous.py", line 355, in reconnect_on_error
+    raise RuntimeError(E_RETRY_LIMIT_EXCEEDED) from exc
+RuntimeError: 
+Retry limit exceeded while trying to reconnect to the Celery result store
+backend. The Celery application must be restarted.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Audio\speech_analysis_system\src\workers\tasks.py", line 62, in analyze_audio_task
+    self.update_state(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\app\task.py", line 1052, in update_state
+    self.backend.store_result(
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 625, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 1090, in _store_result
+    current_meta = self._get_task_meta_for(task_id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 1112, in _get_task_meta_for
+    meta = self.get(self.get_key_for_task(task_id))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Audio\speech_analysis_system\.venv\Lib\site-packages\celery\backends\base.py", line 986, in get_key_for_task
+    raise ValueError(f'task_id must not be empty. Got {task_id} instead.')
+ValueError: task_id must not be empty. Got None instead.
+
+2026-04-19 20:18:20 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:18:32 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:18:32 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:18:35 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:18:38 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:18:38 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:18:38 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:18:38 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:18:38 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:18:38 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:18:38 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:18:48 | INFO     | src.api.routes:111 | [79478078-ac1] Uploaded: test_speech.wav (3.2 MB)
+2026-04-19 20:18:48 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [79478078-ac1] Starting preprocessing: 79478078-ac1_original.wav
+2026-04-19 20:18:50 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [79478078-ac1] Duration: 76.8s | SR: 16000Hz
+2026-04-19 20:18:50 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [79478078-ac1] Estimated SNR: 60.0 dB
+2026-04-19 20:18:50 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [79478078-ac1] SNR sufficient - skipping denoising
+2026-04-19 20:18:50 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [79478078-ac1] Preprocessing complete -> 79478078-ac1_processed.wav
+2026-04-19 20:18:50 | INFO     | src.analysis.asr.transcriber:234 | [79478078-ac1] Starting local ASR transcription
+2026-04-19 20:18:53 | INFO     | src.analysis.asr.transcriber:179 | [79478078-ac1] Transcribed 182 words in 3.6s | Mean confidence: 0.97 | Low-conf words: 3
+2026-04-19 20:18:53 | SUCCESS  | src.analysis.asr.transcriber:240 | [79478078-ac1] ASR complete: 182 words | confidence: 0.97 | time: 3.6s
+2026-04-19 20:18:53 | INFO     | src.analysis.audio_dsp.vad:279 | [79478078-ac1] Starting VAD analysis
+2026-04-19 20:18:55 | INFO     | src.analysis.audio_dsp.vad:303 | [79478078-ac1] Speech: 57.8s | Silence: 19.0s | Ratio: 75.2%
+2026-04-19 20:18:55 | INFO     | src.analysis.audio_dsp.vad:315 | [79478078-ac1] Pauses: 34 total | 15 micro (150-400ms) | 19 macro (>500ms)
+2026-04-19 20:18:55 | INFO     | src.analysis.audio_dsp.vad:326 | [79478078-ac1] Pause freq: 19.7/min | Mean duration: 0.76s
+2026-04-19 20:18:55 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [79478078-ac1] VAD analysis complete
+2026-04-19 20:19:01 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 20:19:01 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 20:19:02 | INFO     | src.analysis.nlp.tone:187 | [79478078-ac1] Starting tone analysis
+2026-04-19 20:19:02 | INFO     | src.analysis.nlp.tone:27 | Loading RoBERTa sentiment model...
+2026-04-19 20:19:05 | WARNING  | src.analysis.nlp.tone:46 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 20:19:05 | INFO     | src.analysis.nlp.tone:202 | [79478078-ac1] Tone: Formal (score 4.0)
+2026-04-19 20:19:05 | INFO     | src.analysis.scoring.composite:126 | [79478078-ac1] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 20:19:05 | INFO     | src.analysis.scoring.report_builder:95 | [79478078-ac1] Report built: 3.8/5 Grade B
+2026-04-19 20:19:05 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\79478078-ac1_report.json
+2026-04-19 20:19:05 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\79478078-ac1_report.html
+2026-04-19 20:19:05 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\79478078-ac1_report.html
+2026-04-19 20:19:06 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\79478078-ac1_report.pdf
+2026-04-19 20:19:06 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 79478078-ac1: JSON + HTML + PDF
+2026-04-19 20:19:06 | SUCCESS  | src.api.routes:86 | [79478078-ac1] Pipeline complete
+2026-04-19 20:23:48 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:23:51 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:23:51 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:23:56 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:23:59 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:23:59 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:23:59 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:23:59 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:24:00 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:24:00 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:24:00 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:24:02 | INFO     | src.api.routes:111 | [3701b8d6-e04] Uploaded: Recording.m4a (0.3 MB)
+2026-04-19 20:24:02 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [3701b8d6-e04] Starting preprocessing: 3701b8d6-e04_original.m4a
+2026-04-19 20:24:02 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [3701b8d6-e04] Duration: 11.1s | SR: 16000Hz
+2026-04-19 20:24:02 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [3701b8d6-e04] Estimated SNR: 60.0 dB
+2026-04-19 20:24:02 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [3701b8d6-e04] SNR sufficient - skipping denoising
+2026-04-19 20:24:02 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [3701b8d6-e04] Preprocessing complete -> 3701b8d6-e04_processed.wav
+2026-04-19 20:24:02 | INFO     | src.analysis.asr.transcriber:234 | [3701b8d6-e04] Starting local ASR transcription
+2026-04-19 20:24:03 | INFO     | src.analysis.asr.transcriber:179 | [3701b8d6-e04] Transcribed 18 words in 0.6s | Mean confidence: 0.72 | Low-conf words: 2
+2026-04-19 20:24:03 | WARNING  | src.analysis.asr.circuit_breaker:80 | ASR confidence 0.72 below threshold 0.75 - recording soft failure
+2026-04-19 20:24:03 | WARNING  | src.analysis.asr.circuit_breaker:102 | Circuit breaker failure #1/3 - reason: low_confidence:0.72
+2026-04-19 20:24:03 | SUCCESS  | src.analysis.asr.transcriber:240 | [3701b8d6-e04] ASR complete: 18 words | confidence: 0.72 | time: 0.6s
+2026-04-19 20:24:03 | INFO     | src.analysis.audio_dsp.vad:279 | [3701b8d6-e04] Starting VAD analysis
+2026-04-19 20:24:03 | INFO     | src.analysis.audio_dsp.vad:303 | [3701b8d6-e04] Speech: 5.6s | Silence: 5.5s | Ratio: 50.7%
+2026-04-19 20:24:03 | INFO     | src.analysis.audio_dsp.vad:315 | [3701b8d6-e04] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 20:24:03 | INFO     | src.analysis.audio_dsp.vad:326 | [3701b8d6-e04] Pause freq: 42.9/min | Mean duration: 1.29s
+2026-04-19 20:24:03 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [3701b8d6-e04] VAD analysis complete
+2026-04-19 20:24:05 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 20:24:06 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 20:24:07 | INFO     | src.analysis.nlp.tone:187 | [3701b8d6-e04] Starting tone analysis
+2026-04-19 20:24:07 | INFO     | src.analysis.nlp.tone:27 | Loading RoBERTa sentiment model...
+2026-04-19 20:24:09 | WARNING  | src.analysis.nlp.tone:46 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 20:24:09 | INFO     | src.analysis.nlp.tone:202 | [3701b8d6-e04] Tone: Formal (score 4.0)
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.composite:126 | [3701b8d6-e04] Composite: 3.2/5 (55.0%) Grade: C | Role: general
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.report_builder:95 | [3701b8d6-e04] Report built: 3.2/5 Grade C
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\3701b8d6-e04_report.json
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\3701b8d6-e04_report.html
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\3701b8d6-e04_report.html
+2026-04-19 20:24:10 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\3701b8d6-e04_report.pdf
+2026-04-19 20:24:10 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 3701b8d6-e04: JSON + HTML + PDF
+2026-04-19 20:24:10 | SUCCESS  | src.api.routes:86 | [3701b8d6-e04] Pipeline complete
+2026-04-19 20:25:56 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:25:58 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:25:58 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:26:04 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:26:07 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:26:07 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:26:07 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:26:07 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:26:08 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:26:08 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:26:08 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:26:09 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:26:12 | INFO     | src.main:28 | Starting Speech Analysis System...
+2026-04-19 20:26:12 | INFO     | src.main:36 | Pre-warming ASR model...
+2026-04-19 20:26:15 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:26:17 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:26:17 | SUCCESS  | src.main:39 | ASR model ready
+2026-04-19 20:26:17 | INFO     | src.main:44 | Pre-warming VAD model...
+2026-04-19 20:26:17 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:26:19 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:26:19 | SUCCESS  | src.main:47 | VAD model ready
+2026-04-19 20:26:19 | SUCCESS  | src.main:51 | Speech Analysis System ready!
+2026-04-19 20:26:19 | INFO     | src.main:54 | Shutting down Speech Analysis System...
+2026-04-19 20:26:22 | INFO     | src.main:33 | Starting Speech Analysis System v1.0...
+2026-04-19 20:26:25 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:26:29 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:26:29 | SUCCESS  | src.main:42 | ASR model ready (GPU)
+2026-04-19 20:26:29 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:26:30 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:26:30 | SUCCESS  | src.main:50 | VAD model ready
+2026-04-19 20:26:31 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 20:26:31 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 20:26:31 | SUCCESS  | src.main:58 | spaCy model ready
+2026-04-19 20:26:33 | INFO     | src.analysis.nlp.tone:37 | Loading RoBERTa sentiment model on GPU...
+2026-04-19 20:26:36 | WARNING  | src.analysis.nlp.tone:54 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 20:26:36 | SUCCESS  | src.main:66 | Sentiment model ready
+2026-04-19 20:26:36 | SUCCESS  | src.main:70 | ==================================================
+2026-04-19 20:26:36 | SUCCESS  | src.main:71 |   Speech Analysis System READY
+2026-04-19 20:26:36 | SUCCESS  | src.main:72 |   Docs  : http://localhost:8000/docs
+2026-04-19 20:26:36 | SUCCESS  | src.main:73 |   Health: http://localhost:8000/api/v1/health
+2026-04-19 20:26:36 | SUCCESS  | src.main:74 | ==================================================
+2026-04-19 20:26:58 | INFO     | src.main:76 | Shutting down...
+2026-04-19 20:27:10 | INFO     | src.main:33 | Starting Speech Analysis System v1.0...
+2026-04-19 20:27:12 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:27:15 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:27:15 | SUCCESS  | src.main:42 | ASR model ready (GPU)
+2026-04-19 20:27:15 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:27:15 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:27:15 | SUCCESS  | src.main:50 | VAD model ready
+2026-04-19 20:27:16 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 20:27:16 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 20:27:16 | SUCCESS  | src.main:58 | spaCy model ready
+2026-04-19 20:27:17 | INFO     | src.analysis.nlp.tone:37 | Loading RoBERTa sentiment model on GPU...
+2026-04-19 20:27:20 | WARNING  | src.analysis.nlp.tone:54 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 20:27:20 | SUCCESS  | src.main:66 | Sentiment model ready
+2026-04-19 20:27:20 | SUCCESS  | src.main:70 | ==================================================
+2026-04-19 20:27:20 | SUCCESS  | src.main:71 |   Speech Analysis System READY
+2026-04-19 20:27:20 | SUCCESS  | src.main:72 |   Docs  : http://localhost:8000/docs
+2026-04-19 20:27:20 | SUCCESS  | src.main:73 |   Health: http://localhost:8000/api/v1/health
+2026-04-19 20:27:20 | SUCCESS  | src.main:74 | ==================================================
+2026-04-19 20:27:20 | INFO     | src.api.routes:111 | [10bbb930-ee1] Uploaded: Recording.m4a (0.3 MB)
+2026-04-19 20:27:20 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [10bbb930-ee1] Starting preprocessing: 10bbb930-ee1_original.m4a
+2026-04-19 20:27:20 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [10bbb930-ee1] Duration: 11.1s | SR: 16000Hz
+2026-04-19 20:27:20 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [10bbb930-ee1] Estimated SNR: 60.0 dB
+2026-04-19 20:27:20 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [10bbb930-ee1] SNR sufficient - skipping denoising
+2026-04-19 20:27:20 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [10bbb930-ee1] Preprocessing complete -> 10bbb930-ee1_processed.wav
+2026-04-19 20:27:20 | INFO     | src.analysis.asr.transcriber:234 | [10bbb930-ee1] Starting local ASR transcription
+2026-04-19 20:27:21 | INFO     | src.analysis.asr.transcriber:179 | [10bbb930-ee1] Transcribed 18 words in 0.7s | Mean confidence: 0.72 | Low-conf words: 2
+2026-04-19 20:27:21 | WARNING  | src.analysis.asr.circuit_breaker:80 | ASR confidence 0.72 below threshold 0.75 - recording soft failure
+2026-04-19 20:27:21 | WARNING  | src.analysis.asr.circuit_breaker:102 | Circuit breaker failure #1/3 - reason: low_confidence:0.72
+2026-04-19 20:27:21 | SUCCESS  | src.analysis.asr.transcriber:240 | [10bbb930-ee1] ASR complete: 18 words | confidence: 0.72 | time: 0.7s
+2026-04-19 20:27:21 | INFO     | src.analysis.audio_dsp.vad:279 | [10bbb930-ee1] Starting VAD analysis
+2026-04-19 20:27:21 | INFO     | src.analysis.audio_dsp.vad:303 | [10bbb930-ee1] Speech: 5.6s | Silence: 5.5s | Ratio: 50.7%
+2026-04-19 20:27:21 | INFO     | src.analysis.audio_dsp.vad:315 | [10bbb930-ee1] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 20:27:21 | INFO     | src.analysis.audio_dsp.vad:326 | [10bbb930-ee1] Pause freq: 42.9/min | Mean duration: 1.29s
+2026-04-19 20:27:21 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [10bbb930-ee1] VAD analysis complete
+2026-04-19 20:27:23 | INFO     | src.analysis.nlp.tone:189 | [10bbb930-ee1] Starting tone analysis
+2026-04-19 20:27:23 | INFO     | src.analysis.nlp.tone:203 | [10bbb930-ee1] Tone: Formal (score 4.0)
+2026-04-19 20:27:23 | INFO     | src.analysis.scoring.composite:126 | [10bbb930-ee1] Composite: 3.2/5 (55.0%) Grade: C | Role: general
+2026-04-19 20:27:23 | INFO     | src.analysis.scoring.report_builder:95 | [10bbb930-ee1] Report built: 3.2/5 Grade C
+2026-04-19 20:27:23 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\10bbb930-ee1_report.json
+2026-04-19 20:27:23 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\10bbb930-ee1_report.html
+2026-04-19 20:27:23 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\10bbb930-ee1_report.html
+2026-04-19 20:27:24 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\10bbb930-ee1_report.pdf
+2026-04-19 20:27:24 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 10bbb930-ee1: JSON + HTML + PDF
+2026-04-19 20:27:24 | SUCCESS  | src.api.routes:86 | [10bbb930-ee1] Pipeline complete
+2026-04-19 20:28:34 | INFO     | src.api.routes:111 | [56cf6d94-e45] Uploaded: Recording.m4a (0.3 MB)
+2026-04-19 20:28:34 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [56cf6d94-e45] Starting preprocessing: 56cf6d94-e45_original.m4a
+2026-04-19 20:28:34 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [56cf6d94-e45] Duration: 11.1s | SR: 16000Hz
+2026-04-19 20:28:34 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [56cf6d94-e45] Estimated SNR: 60.0 dB
+2026-04-19 20:28:34 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [56cf6d94-e45] SNR sufficient - skipping denoising
+2026-04-19 20:28:34 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [56cf6d94-e45] Preprocessing complete -> 56cf6d94-e45_processed.wav
+2026-04-19 20:28:34 | INFO     | src.analysis.asr.transcriber:234 | [56cf6d94-e45] Starting local ASR transcription
+2026-04-19 20:28:35 | INFO     | src.analysis.asr.transcriber:179 | [56cf6d94-e45] Transcribed 18 words in 0.9s | Mean confidence: 0.72 | Low-conf words: 2
+2026-04-19 20:28:35 | WARNING  | src.analysis.asr.circuit_breaker:80 | ASR confidence 0.72 below threshold 0.75 - recording soft failure
+2026-04-19 20:28:35 | WARNING  | src.analysis.asr.circuit_breaker:102 | Circuit breaker failure #2/3 - reason: low_confidence:0.72
+2026-04-19 20:28:35 | SUCCESS  | src.analysis.asr.transcriber:240 | [56cf6d94-e45] ASR complete: 18 words | confidence: 0.72 | time: 0.9s
+2026-04-19 20:28:35 | INFO     | src.analysis.audio_dsp.vad:279 | [56cf6d94-e45] Starting VAD analysis
+2026-04-19 20:28:35 | INFO     | src.analysis.audio_dsp.vad:303 | [56cf6d94-e45] Speech: 5.6s | Silence: 5.5s | Ratio: 50.7%
+2026-04-19 20:28:35 | INFO     | src.analysis.audio_dsp.vad:315 | [56cf6d94-e45] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 20:28:35 | INFO     | src.analysis.audio_dsp.vad:326 | [56cf6d94-e45] Pause freq: 42.9/min | Mean duration: 1.29s
+2026-04-19 20:28:35 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [56cf6d94-e45] VAD analysis complete
+2026-04-19 20:28:35 | INFO     | src.analysis.nlp.tone:189 | [56cf6d94-e45] Starting tone analysis
+2026-04-19 20:28:35 | INFO     | src.analysis.nlp.tone:203 | [56cf6d94-e45] Tone: Formal (score 4.0)
+2026-04-19 20:28:35 | INFO     | src.analysis.scoring.composite:126 | [56cf6d94-e45] Composite: 3.2/5 (55.0%) Grade: C | Role: general
+2026-04-19 20:28:35 | INFO     | src.analysis.scoring.report_builder:95 | [56cf6d94-e45] Report built: 3.2/5 Grade C
+2026-04-19 20:28:35 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\56cf6d94-e45_report.json
+2026-04-19 20:28:35 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\56cf6d94-e45_report.html
+2026-04-19 20:28:35 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\56cf6d94-e45_report.html
+2026-04-19 20:28:36 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\56cf6d94-e45_report.pdf
+2026-04-19 20:28:36 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 56cf6d94-e45: JSON + HTML + PDF
+2026-04-19 20:28:36 | SUCCESS  | src.api.routes:86 | [56cf6d94-e45] Pipeline complete
+2026-04-19 20:35:25 | INFO     | src.main:76 | Shutting down...
+2026-04-19 20:35:31 | INFO     | src.main:33 | Starting Speech Analysis System v1.0...
+2026-04-19 20:35:33 | INFO     | src.analysis.asr.transcriber:81 | Loading faster-whisper model: small.en on cuda (float16)
+2026-04-19 20:35:37 | SUCCESS  | src.analysis.asr.transcriber:94 | faster-whisper loaded: small.en
+2026-04-19 20:35:37 | SUCCESS  | src.main:42 | ASR model ready (GPU)
+2026-04-19 20:35:37 | INFO     | src.analysis.audio_dsp.vad:72 | Loading Silero VAD model...
+2026-04-19 20:35:39 | INFO     | src.analysis.audio_dsp.vad:82 | Silero VAD model loaded successfully
+2026-04-19 20:35:39 | SUCCESS  | src.main:50 | VAD model ready
+2026-04-19 20:35:41 | INFO     | src.analysis.nlp.punctuation:18 | Loading spaCy en_core_web_sm...
+2026-04-19 20:35:42 | INFO     | src.analysis.nlp.punctuation:20 | spaCy loaded
+2026-04-19 20:35:42 | SUCCESS  | src.main:58 | spaCy model ready
+2026-04-19 20:35:43 | INFO     | src.analysis.nlp.tone:37 | Loading RoBERTa sentiment model on GPU...
+2026-04-19 20:35:45 | WARNING  | src.analysis.nlp.tone:54 | RoBERTa load failed: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment. Check out the instructions on the
+installation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.
+Please note that you may need to restart your runtime after installation.
+ - using VADER fallback
+2026-04-19 20:35:46 | SUCCESS  | src.main:66 | Sentiment model ready
+2026-04-19 20:35:46 | SUCCESS  | src.main:70 | ==================================================
+2026-04-19 20:35:46 | SUCCESS  | src.main:71 |   Speech Analysis System READY
+2026-04-19 20:35:46 | SUCCESS  | src.main:72 |   Docs  : http://localhost:8000/docs
+2026-04-19 20:35:46 | SUCCESS  | src.main:73 |   Health: http://localhost:8000/api/v1/health
+2026-04-19 20:35:46 | SUCCESS  | src.main:74 | ==================================================
+2026-04-19 20:44:19 | INFO     | src.api.routes:111 | [091864c1-bfe] Uploaded: Recording.m4a (0.3 MB)
+2026-04-19 20:44:19 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [091864c1-bfe] Starting preprocessing: 091864c1-bfe_original.m4a
+2026-04-19 20:44:19 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [091864c1-bfe] Duration: 11.1s | SR: 16000Hz
+2026-04-19 20:44:19 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [091864c1-bfe] Estimated SNR: 60.0 dB
+2026-04-19 20:44:19 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [091864c1-bfe] SNR sufficient - skipping denoising
+2026-04-19 20:44:19 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [091864c1-bfe] Preprocessing complete -> 091864c1-bfe_processed.wav
+2026-04-19 20:44:19 | INFO     | src.analysis.asr.transcriber:234 | [091864c1-bfe] Starting local ASR transcription
+2026-04-19 20:44:21 | INFO     | src.analysis.asr.transcriber:179 | [091864c1-bfe] Transcribed 18 words in 1.8s | Mean confidence: 0.72 | Low-conf words: 2
+2026-04-19 20:44:21 | WARNING  | src.analysis.asr.circuit_breaker:80 | ASR confidence 0.72 below threshold 0.75 - recording soft failure
+2026-04-19 20:44:21 | WARNING  | src.analysis.asr.circuit_breaker:102 | Circuit breaker failure #1/3 - reason: low_confidence:0.72
+2026-04-19 20:44:21 | SUCCESS  | src.analysis.asr.transcriber:240 | [091864c1-bfe] ASR complete: 18 words | confidence: 0.72 | time: 1.8s
+2026-04-19 20:44:21 | INFO     | src.analysis.audio_dsp.vad:279 | [091864c1-bfe] Starting VAD analysis
+2026-04-19 20:44:22 | INFO     | src.analysis.audio_dsp.vad:303 | [091864c1-bfe] Speech: 5.6s | Silence: 5.5s | Ratio: 50.7%
+2026-04-19 20:44:22 | INFO     | src.analysis.audio_dsp.vad:315 | [091864c1-bfe] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 20:44:22 | INFO     | src.analysis.audio_dsp.vad:326 | [091864c1-bfe] Pause freq: 42.9/min | Mean duration: 1.29s
+2026-04-19 20:44:22 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [091864c1-bfe] VAD analysis complete
+2026-04-19 20:44:26 | INFO     | src.analysis.nlp.tone:189 | [091864c1-bfe] Starting tone analysis
+2026-04-19 20:44:26 | INFO     | src.analysis.nlp.tone:203 | [091864c1-bfe] Tone: Formal (score 4.0)
+2026-04-19 20:44:26 | INFO     | src.analysis.scoring.composite:126 | [091864c1-bfe] Composite: 3.18/5 (54.5%) Grade: C | Role: interview
+2026-04-19 20:44:26 | INFO     | src.analysis.scoring.report_builder:95 | [091864c1-bfe] Report built: 3.18/5 Grade C
+2026-04-19 20:44:26 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\091864c1-bfe_report.json
+2026-04-19 20:44:26 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\091864c1-bfe_report.html
+2026-04-19 20:44:26 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\091864c1-bfe_report.html
+2026-04-19 20:44:27 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\091864c1-bfe_report.pdf
+2026-04-19 20:44:27 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 091864c1-bfe: JSON + HTML + PDF
+2026-04-19 20:44:27 | SUCCESS  | src.api.routes:86 | [091864c1-bfe] Pipeline complete
+2026-04-19 21:05:33 | INFO     | src.api.routes:111 | [fe1b2695-606] Uploaded: New Recording 4.m4a (0.1 MB)
+2026-04-19 21:05:33 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [fe1b2695-606] Starting preprocessing: fe1b2695-606_original.m4a
+2026-04-19 21:05:33 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [fe1b2695-606] Duration: 14.7s | SR: 16000Hz
+2026-04-19 21:05:33 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [fe1b2695-606] Estimated SNR: 60.0 dB
+2026-04-19 21:05:33 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [fe1b2695-606] SNR sufficient - skipping denoising
+2026-04-19 21:05:33 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [fe1b2695-606] Preprocessing complete -> fe1b2695-606_processed.wav
+2026-04-19 21:05:33 | INFO     | src.analysis.asr.transcriber:234 | [fe1b2695-606] Starting local ASR transcription
+2026-04-19 21:05:35 | INFO     | src.analysis.asr.transcriber:179 | [fe1b2695-606] Transcribed 28 words in 2.0s | Mean confidence: 0.86 | Low-conf words: 3
+2026-04-19 21:05:35 | SUCCESS  | src.analysis.asr.transcriber:240 | [fe1b2695-606] ASR complete: 28 words | confidence: 0.86 | time: 2.0s
+2026-04-19 21:05:35 | INFO     | src.analysis.audio_dsp.vad:279 | [fe1b2695-606] Starting VAD analysis
+2026-04-19 21:05:35 | INFO     | src.analysis.audio_dsp.vad:303 | [fe1b2695-606] Speech: 9.2s | Silence: 5.5s | Ratio: 62.5%
+2026-04-19 21:05:35 | INFO     | src.analysis.audio_dsp.vad:315 | [fe1b2695-606] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 21:05:35 | INFO     | src.analysis.audio_dsp.vad:326 | [fe1b2695-606] Pause freq: 26.1/min | Mean duration: 1.31s
+2026-04-19 21:05:35 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [fe1b2695-606] VAD analysis complete
+2026-04-19 21:05:35 | INFO     | src.analysis.nlp.tone:189 | [fe1b2695-606] Starting tone analysis
+2026-04-19 21:05:35 | INFO     | src.analysis.nlp.tone:203 | [fe1b2695-606] Tone: Formal (score 4.0)
+2026-04-19 21:05:35 | INFO     | src.analysis.scoring.composite:126 | [fe1b2695-606] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 21:05:35 | INFO     | src.analysis.scoring.report_builder:95 | [fe1b2695-606] Report built: 3.8/5 Grade B
+2026-04-19 21:05:35 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\fe1b2695-606_report.json
+2026-04-19 21:05:35 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\fe1b2695-606_report.html
+2026-04-19 21:05:36 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\fe1b2695-606_report.html
+2026-04-19 21:05:36 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\fe1b2695-606_report.pdf
+2026-04-19 21:05:36 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job fe1b2695-606: JSON + HTML + PDF
+2026-04-19 21:05:36 | SUCCESS  | src.api.routes:86 | [fe1b2695-606] Pipeline complete
+2026-04-19 21:47:12 | INFO     | src.api.routes:111 | [a02bd7ed-a04] Uploaded: New Recording 4.m4a (0.1 MB)
+2026-04-19 21:47:12 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [a02bd7ed-a04] Starting preprocessing: a02bd7ed-a04_original.m4a
+2026-04-19 21:47:12 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [a02bd7ed-a04] Duration: 14.7s | SR: 16000Hz
+2026-04-19 21:47:12 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [a02bd7ed-a04] Estimated SNR: 60.0 dB
+2026-04-19 21:47:12 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [a02bd7ed-a04] SNR sufficient - skipping denoising
+2026-04-19 21:47:12 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [a02bd7ed-a04] Preprocessing complete -> a02bd7ed-a04_processed.wav
+2026-04-19 21:47:12 | INFO     | src.analysis.asr.transcriber:234 | [a02bd7ed-a04] Starting local ASR transcription
+2026-04-19 21:47:15 | INFO     | src.analysis.asr.transcriber:179 | [a02bd7ed-a04] Transcribed 28 words in 2.9s | Mean confidence: 0.86 | Low-conf words: 3
+2026-04-19 21:47:15 | SUCCESS  | src.analysis.asr.transcriber:240 | [a02bd7ed-a04] ASR complete: 28 words | confidence: 0.86 | time: 2.9s
+2026-04-19 21:47:15 | INFO     | src.analysis.audio_dsp.vad:279 | [a02bd7ed-a04] Starting VAD analysis
+2026-04-19 21:47:16 | INFO     | src.analysis.audio_dsp.vad:303 | [a02bd7ed-a04] Speech: 9.2s | Silence: 5.5s | Ratio: 62.5%
+2026-04-19 21:47:16 | INFO     | src.analysis.audio_dsp.vad:315 | [a02bd7ed-a04] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 21:47:16 | INFO     | src.analysis.audio_dsp.vad:326 | [a02bd7ed-a04] Pause freq: 26.1/min | Mean duration: 1.31s
+2026-04-19 21:47:16 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [a02bd7ed-a04] VAD analysis complete
+2026-04-19 21:47:16 | INFO     | src.analysis.nlp.tone:189 | [a02bd7ed-a04] Starting tone analysis
+2026-04-19 21:47:16 | INFO     | src.analysis.nlp.tone:203 | [a02bd7ed-a04] Tone: Formal (score 4.0)
+2026-04-19 21:47:16 | INFO     | src.analysis.scoring.composite:126 | [a02bd7ed-a04] Composite: 3.79/5 (69.8%) Grade: B | Role: coaching
+2026-04-19 21:47:16 | INFO     | src.analysis.scoring.report_builder:95 | [a02bd7ed-a04] Report built: 3.79/5 Grade B
+2026-04-19 21:47:16 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\a02bd7ed-a04_report.json
+2026-04-19 21:47:16 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\a02bd7ed-a04_report.html
+2026-04-19 21:47:16 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\a02bd7ed-a04_report.html
+2026-04-19 21:47:17 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\a02bd7ed-a04_report.pdf
+2026-04-19 21:47:17 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job a02bd7ed-a04: JSON + HTML + PDF
+2026-04-19 21:47:17 | SUCCESS  | src.api.routes:86 | [a02bd7ed-a04] Pipeline complete
+2026-04-19 22:25:44 | INFO     | src.api.routes:111 | [2df8877b-ab0] Uploaded: New Recording 4.m4a (0.1 MB)
+2026-04-19 22:25:44 | INFO     | src.analysis.audio_dsp.preprocessor:171 | [2df8877b-ab0] Starting preprocessing: 2df8877b-ab0_original.m4a
+2026-04-19 22:25:45 | INFO     | src.analysis.audio_dsp.preprocessor:198 | [2df8877b-ab0] Duration: 14.7s | SR: 16000Hz
+2026-04-19 22:25:45 | INFO     | src.analysis.audio_dsp.preprocessor:202 | [2df8877b-ab0] Estimated SNR: 60.0 dB
+2026-04-19 22:25:45 | INFO     | src.analysis.audio_dsp.preprocessor:224 | [2df8877b-ab0] SNR sufficient - skipping denoising
+2026-04-19 22:25:45 | SUCCESS  | src.analysis.audio_dsp.preprocessor:257 | [2df8877b-ab0] Preprocessing complete -> 2df8877b-ab0_processed.wav
+2026-04-19 22:25:45 | INFO     | src.analysis.asr.transcriber:234 | [2df8877b-ab0] Starting local ASR transcription
+2026-04-19 22:25:48 | INFO     | src.analysis.asr.transcriber:179 | [2df8877b-ab0] Transcribed 28 words in 3.4s | Mean confidence: 0.86 | Low-conf words: 3
+2026-04-19 22:25:48 | SUCCESS  | src.analysis.asr.transcriber:240 | [2df8877b-ab0] ASR complete: 28 words | confidence: 0.86 | time: 3.4s
+2026-04-19 22:25:48 | INFO     | src.analysis.audio_dsp.vad:279 | [2df8877b-ab0] Starting VAD analysis
+2026-04-19 22:25:49 | INFO     | src.analysis.audio_dsp.vad:303 | [2df8877b-ab0] Speech: 9.2s | Silence: 5.5s | Ratio: 62.5%
+2026-04-19 22:25:49 | INFO     | src.analysis.audio_dsp.vad:315 | [2df8877b-ab0] Pauses: 5 total | 1 micro (150-400ms) | 4 macro (>500ms)
+2026-04-19 22:25:49 | INFO     | src.analysis.audio_dsp.vad:326 | [2df8877b-ab0] Pause freq: 26.1/min | Mean duration: 1.31s
+2026-04-19 22:25:49 | SUCCESS  | src.analysis.audio_dsp.vad:331 | [2df8877b-ab0] VAD analysis complete
+2026-04-19 22:25:49 | INFO     | src.analysis.nlp.tone:189 | [2df8877b-ab0] Starting tone analysis
+2026-04-19 22:25:49 | INFO     | src.analysis.nlp.tone:203 | [2df8877b-ab0] Tone: Formal (score 4.0)
+2026-04-19 22:25:49 | INFO     | src.analysis.scoring.composite:126 | [2df8877b-ab0] Composite: 3.8/5 (70.0%) Grade: B | Role: general
+2026-04-19 22:25:49 | INFO     | src.analysis.scoring.report_builder:95 | [2df8877b-ab0] Report built: 3.8/5 Grade B
+2026-04-19 22:25:49 | INFO     | src.analysis.scoring.report_builder:143 | JSON report saved: reports\2df8877b-ab0_report.json
+2026-04-19 22:25:49 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\2df8877b-ab0_report.html
+2026-04-19 22:25:49 | INFO     | src.analysis.scoring.generator:194 | HTML report saved: reports\2df8877b-ab0_report.html
+2026-04-19 22:25:51 | INFO     | src.analysis.scoring.generator:220 | PDF report saved: reports\2df8877b-ab0_report.pdf
+2026-04-19 22:25:51 | SUCCESS  | src.analysis.scoring.generator:253 | All reports generated for job 2df8877b-ab0: JSON + HTML + PDF
+2026-04-19 22:25:51 | SUCCESS  | src.api.routes:86 | [2df8877b-ab0] Pipeline complete

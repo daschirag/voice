@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speech Analysis Report - {{ report.metadata.job_id }}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f5f7fa; color: #2d3748; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a365d, #2b6cb0);
+    color: white; padding: 32px; border-radius: 12px; margin-bottom: 24px; }
+  .header h1 { font-size: 26px; margin-bottom: 6px; }
+  .header .meta { font-size: 13px; opacity: 0.85; line-height: 1.7; }
+
+  /* Composite badge */
+  .score-badge { display: flex; align-items: center; gap: 24px;
+    background: white; padding: 24px; border-radius: 12px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .grade-circle { width: 90px; height: 90px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: bold; color: white;
+    background: {{ grade_color }}; flex-shrink: 0; }
+  .score-info h2 { font-size: 22px; color: #1a365d; }
+  .score-info p { font-size: 14px; color: #718096; margin-top: 4px; }
+  .score-bar-wrap { flex: 1; }
+  .score-bar-bg { background: #e2e8f0; border-radius: 8px; height: 16px; overflow: hidden; }
+  .score-bar-fill { height: 100%; background: {{ grade_color }}; border-radius: 8px;
+    width: {{ report.composite_pct }}%; transition: width 0.6s ease; }
+  .score-pct { font-size: 13px; color: #718096; margin-top: 6px; }
+
+  /* Radar chart */
+  .chart-section { background: white; padding: 24px; border-radius: 12px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+  .chart-section h3 { font-size: 16px; color: #1a365d; margin-bottom: 16px; }
+  .chart-section img { max-width: 100%; height: auto; }
+  .radar-svg { width: 100%; max-width: 520px; margin: 0 auto; display: block; }
+
+  /* Dimension cards */
+  .dimensions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .dim-card { background: white; padding: 20px; border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid {{ "#48bb78" }}; }
+  .dim-card.score-low { border-left-color: #fc8181; }
+  .dim-card.score-mid { border-left-color: #f6ad55; }
+  .dim-card.score-high { border-left-color: #48bb78; }
+  .dim-name { font-size: 13px; font-weight: bold; color: #4a5568; text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 8px; }
+  .dim-score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .dim-score-num { font-size: 24px; font-weight: bold; color: #1a365d; min-width: 40px; }
+  .dim-bar-bg { flex: 1; background: #e2e8f0; border-radius: 4px; height: 8px; }
+  .dim-bar-fill { height: 100%; border-radius: 4px; }
+  .dim-insight { font-size: 12px; color: #718096; line-height: 1.5; }
+
+  /* Summary */
+  .summary-section { background: #ebf8ff; border: 1px solid #bee3f8;
+    padding: 20px; border-radius: 10px; margin-bottom: 24px; }
+  .summary-section h3 { color: #2b6cb0; font-size: 15px; margin-bottom: 8px; }
+  .summary-section p { font-size: 14px; line-height: 1.7; color: #2d3748; }
+
+  /* Priorities */
+  .priorities { background: #fff5f5; border: 1px solid #fed7d7;
+    padding: 20px; border-radius: 10px; margin-bottom: 24px; }
+  .priorities h3 { color: #c53030; font-size: 15px; margin-bottom: 12px; }
+  .priority-item { display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid #fed7d7; font-size: 14px; }
+  .priority-item:last-child { border-bottom: none; }
+  .priority-num { background: #fc8181; color: white; border-radius: 50%;
+    width: 24px; height: 24px; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+
+  /* Transcript */
+  .transcript-section { background: white; padding: 20px; border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .transcript-section h3 { color: #1a365d; font-size: 15px; margin-bottom: 12px; }
+  .transcript-text { font-size: 13px; line-height: 1.8; color: #4a5568;
+    max-height: 200px; overflow-y: auto; background: #f7fafc;
+    padding: 16px; border-radius: 8px; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 12px; color: #a0aec0; padding-top: 16px; }
+
+  /* Score colors */
+  {% for key, dim in report.dimensions.items() %}
+  .dim-{{ key }} .dim-bar-fill {
+    background: {% if dim.score >= 4 %}#48bb78{% elif dim.score >= 3 %}#f6ad55{% else %}#fc8181{% endif %};
+  }
+  {% endfor %}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Speech Analysis Report</h1>
+    <div class="meta">
+      <strong>File:</strong> {{ report.metadata.filename }} &nbsp;|&nbsp;
+      <strong>Duration:</strong> {{ report.metadata.duration_seconds }}s &nbsp;|&nbsp;
+      <strong>Role:</strong> {{ report.metadata.role | title }} &nbsp;|&nbsp;
+      <strong>Language:</strong> {{ report.metadata.language | upper }}<br>
+      <strong>Job ID:</strong> {{ report.metadata.job_id }} &nbsp;|&nbsp;
+      <strong>Generated:</strong> {{ report.metadata.generated_at[:19] | replace("T", " ") }} UTC
+    </div>
+  </div>
+
+  <!-- Composite Score Badge -->
+  <div class="score-badge">
+    <div class="grade-circle">{{ report.grade }}</div>
+    <div class="score-info">
+      <h2>{{ report.composite_score }}/5.0</h2>
+      <p>Composite Score &mdash; {{ report.metadata.role | title }} Profile</p>
+    </div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-bg">
+        <div class="score-bar-fill"></div>
+      </div>
+      <div class="score-pct">{{ report.composite_pct }}% overall performance</div>
+    </div>
+  </div>
+
+  <!-- Radar Chart -->
+  <div class="chart-section">
+    <h3>Dimension Radar</h3>
+    {{ radar_svg | safe }}
+  </div>
+
+  <!-- Dimension Cards -->
+  <div class="dimensions">
+    {% for key, dim in report.dimensions.items() %}
+    <div class="dim-card dim-{{ key }} {% if dim.score >= 4 %}score-high{% elif dim.score >= 3 %}score-mid{% else %}score-low{% endif %}">
+      <div class="dim-name">{{ dim.name }}</div>
+      <div class="dim-score-row">
+        <div class="dim-score-num">{{ dim.score }}</div>
+        <div class="dim-bar-bg">
+          <div class="dim-bar-fill" style="width: {{ (dim.score / 5 * 100)|round }}%;"></div>
+        </div>
+      </div>
+      <div class="dim-insight">{{ dim.insight }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-section">
+    <h3>Overall Summary</h3>
+    <p>{{ report.summary }}</p>
+  </div>
+
+  <!-- Improvement Priorities -->
+  {% if report.improvement_priorities %}
+  <div class="priorities">
+    <h3>Improvement Priorities</h3>
+    {% for priority in report.improvement_priorities %}
+    <div class="priority-item">
+      <div class="priority-num">{{ loop.index }}</div>
+      <span>{{ priority }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Transcript -->
+  <div class="transcript-section">
+    <h3>Transcript</h3>
+    <div class="transcript-text">{{ report.transcript }}</div>
+  </div>
+
+  <div class="footer">
+    Speech Analysis System &mdash; Powered by faster-whisper, Silero VAD, Parselmouth &mdash;
+    ASR Confidence: {{ (report.metadata.asr_confidence * 100)|round(1) }}%
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+[project]
+name = "speech-analysis-system"
+version = "0.1.0"
+description = "Production-grade speech analysis system evaluating 7 communication dimensions"
+requires-python = ">=3.11,<3.13"
+
+dependencies = [
+    # -- Web Framework ---------------------------------------------
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "python-multipart>=0.0.9",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.1",
+    # -- Task Queue ------------------------------------------------
+    "celery>=5.4.0",
+    "kombu>=5.3.4",
+    # -- Database --------------------------------------------------
+    "sqlalchemy>=2.0.30",
+    "alembic>=1.13.1",
+    "psycopg2-binary>=2.9.9",
+    "redis>=5.0.4",
+    # -- Auth & Security -------------------------------------------
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    # -- Audio I/O & Processing ------------------------------------
+    "ffmpeg-python>=0.2.0",
+    "soundfile>=0.12.1",
+    "numpy>=1.26.4",
+    "scipy>=1.13.0",
+    # -- ASR -------------------------------------------------------
+    "faster-whisper>=1.0.3",
+    # -- VAD + PyTorch (pip-managed, see tool.uv.sources) ---------
+    "torch>=2.3.0",
+    "torchaudio>=2.3.0",
+    "silero-vad>=5.1",
+    # -- Noise Reduction -------------------------------------------
+    "deepfilternet>=0.5.6",
+    # -- Pitch / F0 ------------------------------------------------
+    "praat-parselmouth>=0.4.3",
+    # -- NLP -------------------------------------------------------
+    "spacy>=3.7.4",
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+    "textstat>=0.7.3",
+    "transformers>=4.41.0",
+    "optimum>=1.20.0",
+    "onnxruntime>=1.18.0",
+    # -- Lexical Diversity (MATTR) ---------------------------------
+    "lexical-diversity>=0.1.1",
+    # -- Report Generation -----------------------------------------
+    "jinja2>=3.1.4",
+    "weasyprint>=62.3",
+    "plotly>=5.22.0",
+    "kaleido>=0.2.1",
+    # -- Utilities -------------------------------------------------
+    "python-dotenv>=1.0.1",
+    "aiofiles>=23.2.1",
+    "httpx>=0.27.0",
+    "tenacity>=8.3.0",
+    "loguru>=0.7.2",
+    "python-slugify>=8.0.4",
+    "pyttsx3>=2.99",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.7",
+    "pytest-cov>=5.0.0",
+    "httpx>=0.27.0",
+    "ruff>=0.4.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+torch = { url = "https://download.pytorch.org/whl/cu121/torch-2.3.0%2Bcu121-cp311-cp311-win_amd64.whl" }
+torchaudio = { url = "https://download.pytorch.org/whl/cu121/torchaudio-2.3.0%2Bcu121-cp311-cp311-win_amd64.whl" }
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
