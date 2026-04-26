@@ -2,11 +2,18 @@
 
 const BACKEND = "https://protract-bless-variable.ngrok-free.dev";
 
-const api = axios.create({ baseURL: BACKEND + "/api/v1", timeout: 300000 });
+const api = axios.create({
+  baseURL: BACKEND + "/api/v1",
+  timeout: 300000,
+  headers: {
+    "ngrok-skip-browser-warning": "true",
+  }
+});
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
+  config.headers["ngrok-skip-browser-warning"] = "true";
   return config;
 });
 
@@ -23,7 +30,7 @@ api.interceptors.response.use(
 
 export const authAPI = {
   register: (data) => api.post("/auth/register", data, {
-    headers: { "Content-Type": "multipart/form-data" }
+    headers: { "Content-Type": "multipart/form-data", "ngrok-skip-browser-warning": "true" }
   }),
   login: (username, password) => {
     const form = new FormData();
