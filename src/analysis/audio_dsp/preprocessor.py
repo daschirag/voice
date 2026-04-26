@@ -151,7 +151,7 @@ def preprocess_audio(
             error_message=f"Input file not found: {input_path}"
         )
 
-    supported_formats = {".mp3", ".wav", ".m4a", ".ogg", ".flac", ".aac"}
+    supported_formats = {".mp3", ".wav", ".m4a", ".ogg", ".flac", ".aac", ".webm"}
     file_ext = Path(input_path).suffix.lower()
     if file_ext not in supported_formats:
         return PreprocessingResult(
@@ -261,3 +261,4 @@ def preprocess_audio(
         audio_path=final_output,
         metadata=metadata,
     )
+

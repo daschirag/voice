@@ -59,6 +59,9 @@ dependencies = [
     "loguru>=0.7.2",
     "python-slugify>=8.0.4",
     "pyttsx3>=2.99",
+    "motor>=3.4.0",
+    "pymongo>=4.7.0",
+    "bcrypt==4.0.1",
 ]
 
 [project.optional-dependencies]

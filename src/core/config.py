@@ -2,36 +2,24 @@
 import sys
 import warnings
 
-# Suppress all known harmless warnings
 os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
-os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
 
-# Suppress Python warnings
 warnings.filterwarnings("ignore", message=".*torchaudio.backend.*")
 warnings.filterwarnings("ignore", message=".*pkg_resources.*")
 warnings.filterwarnings("ignore", message=".*sinc_interpolation.*")
-warnings.filterwarnings("ignore", message=".*cudnnException.*")
 warnings.filterwarnings("ignore", category=UserWarning, module="torch")
 warnings.filterwarnings("ignore", category=UserWarning, module="df")
 warnings.filterwarnings("ignore", category=UserWarning, module="lexical_diversity")
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# Suppress transformers verbose logging
-try:
-    import transformers
-    transformers.logging.set_verbosity_error()
-except Exception:
-    pass
-
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -42,7 +30,8 @@ class Settings(BaseSettings):
 
     # App
     app_env: str = Field(default="development")
-    secret_key: str = Field(default="dev-secret-change-in-production")
+    secret_key: str = Field(default="sas-super-secret-jwt-key-audix-2026")
+    access_token_expire_minutes: int = Field(default=1440)
 
     # ASR
     asr_model: str = Field(default="faster-whisper")
@@ -59,15 +48,21 @@ class Settings(BaseSettings):
     deepgram_api_key: str = Field(default="")
     assemblyai_api_key: str = Field(default="")
 
-    # Celery + RabbitMQ
+    # Celery
     celery_broker_url: str = Field(default="amqp://guest:guest@localhost:5672//")
     celery_result_backend: str = Field(default="redis://localhost:6379/0")
 
     # Redis
     redis_url: str = Field(default="redis://localhost:6379/0")
 
-    # Database
-    database_url: str = Field(default="postgresql://sas_user:sas_pass@localhost:5432/sas_db")
+    # MongoDB
+    mongodb_uri: str = Field(default="mongodb://localhost:27017")
+    mongodb_db_name: str = Field(default="speech_analysis_db")
+
+    # Admin seed
+    admin_username: str = Field(default="atlasAdmin")
+    admin_password: str = Field(default="admin")
+    admin_email: str = Field(default="admin@audix.ai")
 
     # Storage
     upload_dir: Path = Field(default=ROOT_DIR / "uploads")
@@ -75,7 +70,7 @@ class Settings(BaseSettings):
     models_dir: Path = Field(default=ROOT_DIR / "models")
     max_upload_duration_minutes: int = Field(default=60)
 
-    # Audio Preprocessing
+    # Audio
     target_sample_rate: int = Field(default=16000)
     peak_normalize_dbfs: float = Field(default=-3.0)
     min_pause_ms: int = Field(default=150)
@@ -84,6 +79,5 @@ class Settings(BaseSettings):
 
     # Scoring
     default_role: str = Field(default="general")
-
 
 settings = Settings()
