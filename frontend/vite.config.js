@@ -10,4 +10,7 @@ export default defineConfig({
       "/reports": { target: "http://localhost:8000", changeOrigin: true },
     },
   },
+  build: {
+    outDir: "dist",
+  },
 });
