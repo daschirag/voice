@@ -1,6 +1,8 @@
 ﻿import axios from "axios";
 
-const api = axios.create({ baseURL: "/api/v1", timeout: 300000 });
+const BACKEND = "https://protract-bless-variable.ngrok-free.dev";
+
+const api = axios.create({ baseURL: BACKEND + "/api/v1", timeout: 300000 });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
@@ -20,7 +22,9 @@ api.interceptors.response.use(
 );
 
 export const authAPI = {
-  register: (data) => api.post("/auth/register", data, { headers: { "Content-Type": "multipart/form-data" } }),
+  register: (data) => api.post("/auth/register", data, {
+    headers: { "Content-Type": "multipart/form-data" }
+  }),
   login: (username, password) => {
     const form = new FormData();
     form.append("username", username);
@@ -39,8 +43,8 @@ export const clientAPI = {
   },
   myReports: () => api.get("/my-reports"),
   getReport: (id) => api.get(`/report/${id}`),
-  getPdfUrl: (id) => `/api/v1/report/${id}/pdf`,
-  getHtmlUrl: (id) => `/reports/${id}_report.html`,
+  getPdfUrl: (id) => BACKEND + `/api/v1/report/${id}/pdf`,
+  getHtmlUrl: (id) => BACKEND + `/reports/${id}_report.html`,
 };
 
 export const adminAPI = {
@@ -50,7 +54,7 @@ export const adminAPI = {
   deleteUser: (id) => api.delete(`/admin/users/${id}`),
   getReports: (params) => api.get("/admin/reports", { params }),
   getStats: () => api.get("/admin/stats"),
-  getPdfUrl: (id) => `/api/v1/report/${id}/pdf`,
+  getPdfUrl: (id) => BACKEND + `/api/v1/report/${id}/pdf`,
 };
 
 export default api;
