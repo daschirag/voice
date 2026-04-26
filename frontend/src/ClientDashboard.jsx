@@ -87,22 +87,53 @@ function Recorder({ onAudioReady }) {
 
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mr = new MediaRecorder(stream, { mimeType: "audio/webm;codecs=opus" });
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      
+      // Try different mimeTypes for browser compatibility
+      const mimeTypes = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/ogg;codecs=opus",
+        "audio/ogg",
+        "audio/mp4",
+        "",
+      ];
+      
+      let mimeType = "";
+      for (const type of mimeTypes) {
+        if (type === "" || MediaRecorder.isTypeSupported(type)) {
+          mimeType = type;
+          break;
+        }
+      }
+      
+      const options = mimeType ? { mimeType } : {};
+      const mr = new MediaRecorder(stream, options);
       mediaRef.current = mr;
       chunksRef.current = [];
-      mr.ondataavailable = (e) => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+      mr.ondataavailable = (e) => { if (e.data && e.data.size > 0) chunksRef.current.push(e.data); };
       mr.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: "audio/webm" });
+        if (chunksRef.current.length === 0) {
+          alert("Recording failed - no audio captured. Please try again.");
+          stream.getTracks().forEach(t => t.stop());
+          return;
+        }
+        const blob = new Blob(chunksRef.current, { type: mr.mimeType || "audio/webm" });
+        if (blob.size < 1000) {
+          alert("Recording too short or empty. Please speak louder and try again.");
+          stream.getTracks().forEach(t => t.stop());
+          return;
+        }
         const url = URL.createObjectURL(blob);
+        const ext = (mr.mimeType || "audio/webm").includes("ogg") ? "ogg" : "webm";
         const ts = new Date().toISOString().replace(/[:.]/g,"-").slice(0,19);
-        const file = new File([blob], "recording-"+ts+".webm", { type: "audio/webm" });
+        const file = new File([blob], "recording-"+ts+"."+ext, { type: mr.mimeType || "audio/webm" });
         setAudioBlob(blob);
         setAudioUrl(url);
         onAudioReady(file);
         stream.getTracks().forEach(t => t.stop());
       };
-      mr.start(100);
+      mr.start(250);
       setRecording(true);
       setSeconds(0);
       setAudioBlob(null);
@@ -112,10 +143,9 @@ function Recorder({ onAudioReady }) {
         setTick(t => t + 1);
       }, 1000);
     } catch(e) {
-      alert("Microphone access denied. Please allow microphone access in your browser settings.");
+      alert("Microphone access denied. Please allow microphone access in browser settings.");
     }
   };
-
   const stopRecording = () => {
     if (mediaRef.current && recording) {
       mediaRef.current.stop();
@@ -210,7 +240,17 @@ function AnalyzeTab() {
     try {
       const r = await clientAPI.analyze(audioFile, role);
       const jobId = r.data.job_id;
-      const rep = await clientAPI.getReport(jobId);
+      // Retry report fetch up to 5 times
+      let rep = null;
+      for (let i = 0; i < 5; i++) {
+        try {
+          rep = await clientAPI.getReport(jobId);
+          if (rep.data) break;
+        } catch(e) {
+          await new Promise(res => setTimeout(res, 1000));
+        }
+      }
+      if (!rep) throw new Error("Report not ready after retries");
       setResult({ ...rep.data, jobId });
     } catch(e) {
       const msg = e.response?.data?.detail || e.message || "Analysis failed.";
