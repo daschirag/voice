@@ -392,9 +392,7 @@ function Results({ result }) {
       </div>
 
       <div style={{ display:"flex", gap:10 }}>
-        <a href={clientAPI.getPdfUrl(jobId)} target="_blank" style={{ textDecoration:"none" }}>
-          <button className="btn-secondary" style={{ fontSize:13 }}>📥 Download PDF</button>
-        </a>
+        <button className="btn-secondary" style={{ fontSize:13 }} onClick={()=>clientAPI.downloadPdf(jobId, `speech_report_${jobId}.pdf`)}>📥 Download PDF</button>
         <a href={clientAPI.getHtmlUrl(jobId)} target="_blank" style={{ textDecoration:"none" }}>
           <button className="btn-secondary" style={{ fontSize:13 }}>🔗 View HTML Report</button>
         </a>
@@ -457,10 +455,7 @@ function ReportsTab() {
                   </div>
                   <div style={{ fontSize:11, color:"var(--text3)" }}>Grade {r.grade}</div>
                 </div>
-                <a href={"/api/v1/report/"+r.job_id+"/pdf"} target="_blank"
-                  onClick={e=>e.stopPropagation()} style={{ textDecoration:"none" }}>
-                  <button className="btn-secondary" style={{ fontSize:12, padding:"6px 12px" }}>PDF</button>
-                </a>
+                <button className="btn-secondary" style={{ fontSize:12, padding:"6px 12px" }} onClick={(e)=>{e.stopPropagation();clientAPI.downloadPdf(r.job_id)}}>PDF</button>
               </div>
             </div>
             {selected?.id===r.id && r.dimensions && (

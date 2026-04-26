@@ -266,12 +266,7 @@ function ReportsTab() {
                 color:SC(r.composite_score) }}>
                 {r.grade}
               </div>
-              <a href={`/api/v1/report/${r.job_id}/pdf`} target="_blank"
-                style={{ textDecoration:"none" }}>
-                <button className="btn-secondary" style={{ fontSize:11, padding:"4px 10px" }}>
-                  📥 PDF
-                </button>
-              </a>
+              <button className="btn-secondary" style={{ fontSize:11, padding:"4px 10px" }} onClick={()=>adminAPI.downloadPdf(r.job_id)}>📥 PDF</button>
             </div>
           ))}
           {reports.length===0 && (

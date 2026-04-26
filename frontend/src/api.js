@@ -50,6 +50,20 @@ export const clientAPI = {
   },
   myReports: () => api.get("/my-reports"),
   getReport: (id) => api.get(`/report/${id}`),
+  downloadPdf: async (id, filename) => {
+    const response = await api.get(`/report/${id}/pdf`, {
+      responseType: "blob",
+      headers: { "ngrok-skip-browser-warning": "true" }
+    });
+    const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", filename || `speech_report_${id}.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
   getPdfUrl: (id) => BACKEND + `/api/v1/report/${id}/pdf`,
   getHtmlUrl: (id) => BACKEND + `/reports/${id}_report.html`,
 };
@@ -61,6 +75,20 @@ export const adminAPI = {
   deleteUser: (id) => api.delete(`/admin/users/${id}`),
   getReports: (params) => api.get("/admin/reports", { params }),
   getStats: () => api.get("/admin/stats"),
+  downloadPdf: async (id, filename) => {
+    const response = await api.get(`/report/${id}/pdf`, {
+      responseType: "blob",
+      headers: { "ngrok-skip-browser-warning": "true" }
+    });
+    const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", filename || `speech_report_${id}.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
   getPdfUrl: (id) => BACKEND + `/api/v1/report/${id}/pdf`,
 };
 
